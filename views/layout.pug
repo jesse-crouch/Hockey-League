@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        script(
+			  src="http://code.jquery.com/jquery-3.3.1.min.js"
+			  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous")
+        link(
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css",
+            rel="stylesheet",
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS",
+            crossorigin="anonymous")
+        link(rel="stylesheet" href="./stylesheets/style.css")
+        script(src="./javascripts/" + js + ".js")
+    body
+        nav(class="navbar navbar-expand-sm bg-dark navbar-dark")
+            a(class="navbar-brand" href="")
+                img(src="./images/logo_image.png" style="width: 50px; height: 35px;")
+                img(src="./images/logo_text_highlight.png" style="width: 180px; height: 20px;")
+
+            ul(class="navbar-nav mr-auto")
+                li(class="nav-item active")
+                    a(class="nav-link" href="") Home
+                li(class="nav-item")
+                    a(class="nav-link" href="") Schedules
+                li(class="nav-item")
+                    a(class="nav-link" href="") Arenas
+
+            ul(class="navbar-nav ml-auto")
+                input(type="submit" class="btn btn-success" value="Login" style="margin-right: 10px;")
+                input(type="submit" class="btn btn-info" value="Register")
+
+        block content
