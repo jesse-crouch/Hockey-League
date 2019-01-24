@@ -13,6 +13,7 @@ html
         link(rel="stylesheet" href="./stylesheets/style.css")
         script(src="./javascripts/" + js + ".js")
     body
+        input(type="submit" value=server id="serverURLButton" style="display: none;")
         nav(class="navbar navbar-expand-sm bg-dark navbar-dark")
             a(class="navbar-brand" href="")
                 img(src="./images/logo_image.png" style="width: 50px; height: 35px;")
@@ -27,7 +28,7 @@ html
                     a(class="nav-link" href="") Arenas
 
             ul(class="navbar-nav ml-auto")
-                input(type="submit" class="btn btn-success" value="Login" style="margin-right: 10px;")
-                input(type="submit" class="btn btn-info" value="Register")
+                input(id="loginBtn" type="submit" class="btn btn-success" value="Login" style="margin-right: 10px;")
+                input(id="registerBtn" type="submit" class="btn btn-info" value="Register")
 
         block content

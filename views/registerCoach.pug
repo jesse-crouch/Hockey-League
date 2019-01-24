@@ -1,0 +1,68 @@
+extends layout
+
+block content
+
+    div(style="width: 30%; margin: 40px auto; text-align: center;")
+        h3 New Coach Registration
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") First Name
+            input(id="firstnameField" type="text" class="form-control")
+        
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Surname
+            input(id="surnameField" type="text" class="form-control")
+        
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Gender
+            select(id="genderSelect" type="text" class="form-control")
+                option(selected) Choose a gender
+                option Male
+                option Female
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Birthdate (DD/MM/YYYY)
+            input(id="birthdateField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Address
+            input(id="addressField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") City
+            input(id="cityField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Province
+            input(id="provinceField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Country
+            input(id="countryField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Postal Code
+            input(id="postcodeField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Email
+            input(id="emailField" type="text" class="form-control")
+
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="basic-addon1") Desired Password
+            input(id="passField" type="password" class="form-control")
+
+        h4(id="warning" style="color: red; display: none;")
+
+        div(class="input-group mb-3")
+            input(id="submit" type="submit" class="btn btn-success" value="Register" style="width: 50%; margin: 0 auto;")

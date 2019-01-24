@@ -1,0 +1,19 @@
+extends layout
+
+block content
+
+    div(style="width: 30%; margin: 40px auto; text-align: center;")
+        h3(style="margin: 20px 20px;") New Registration
+        div(class="input-group mb-3")
+            div(class="input-group-prepend")
+                span(class="input-group-text" id="customSelect") Registration Type
+            select(class="custom-select" id="typeSelect")
+                option(selected) Choose a type
+                option Player
+                option Parent
+                option Coach
+                option Assistant Coach
+                option Referee
+                option Timekeeper
+        div(class="input-group mb-3")
+            input(id="submit" type="submit" class="btn btn-success" value="Next" style="width: 50%; margin: 0 auto; visibility: hidden;")

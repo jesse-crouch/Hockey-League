@@ -9,9 +9,9 @@ fs.readFile('serverURL.txt', 'utf8', (err, data) => {
 });
 
 router.get('/', (req, res, next) => {
-    res.render('index', {
-        title: 'Hockey League - Home',
-        js: 'index',
+    res.render('registerAssistantCoach', {
+        title: 'Hockey League - Registration',
+        js: 'registerAssistantCoach',
         server: url
     });
 });

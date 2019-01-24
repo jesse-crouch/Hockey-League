@@ -2,13 +2,13 @@
 -- Last modification date: 2019-01-13 15:31:20.649
 
 -- tables
--- Table: admin
-CREATE TABLE admin (
-    id serial NOT NULL PRIMARY KEY,
-    position varchar(50) NOT NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+-- Table: users
+create table users (
+	user_id serial primary key,
+	email varchar(100) not null,
+	password varchar(64) not null,
+	salt varchar(64) not null,
+	level integer not null
 );
 
 -- Table: season
@@ -44,11 +44,11 @@ CREATE TABLE team (
 -- Table: assistant_coach
 CREATE TABLE assistant_coach (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     team_id int NOT NULL REFERENCES team (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -61,20 +61,17 @@ CREATE TABLE assistant_coach (
     phone_confirmed bool NOT NULL,
     date_registered varchar(10) NOT NULL,
     is_registered bool NOT NULL,
-    previous_experience varchar(200) NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    previous_experience varchar(200) NULL
 );
 
 -- Table: coach
 CREATE TABLE coach (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     team_id int NOT NULL REFERENCES team (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -87,15 +84,13 @@ CREATE TABLE coach (
     phone_confirmed bool NOT NULL,
     date_registered varchar(10) NOT NULL,
     is_registered bool NOT NULL,
-    previous_experience varchar(200) NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    previous_experience varchar(200) NULL
 );
 
 -- Table: player
 CREATE TABLE player (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     team_id int NULL REFERENCES team (id),
     coach_request_id int NULL REFERENCES coach (id),
     assistant_coach_request_id int NULL REFERENCES assistant_coach (id),
@@ -104,7 +99,6 @@ CREATE TABLE player (
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
     birth_date varchar(10) NOT NULL,
-    email varchar(100) NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
     province char(2) NOT NULL,
@@ -118,10 +112,7 @@ CREATE TABLE player (
     number int NULL,
     position varchar(16) NULL,
     referral varchar(100) NULL,
-    previous_position varchar(16) NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    previous_position varchar(16) NULL
 );
 
 -- Table: defensive_line
@@ -200,11 +191,11 @@ CREATE TABLE penalty (
 -- Table: primary_parent
 CREATE TABLE primary_parent (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     player_id int NOT NULL REFERENCES player (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -215,20 +206,17 @@ CREATE TABLE primary_parent (
     birth_date varchar(10) NOT NULL,
     email_confirmed bool NOT NULL,
     phone_confirmed bool NOT NULL,
-    date_registered varchar(10) NOT NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    date_registered varchar(10) NOT NULL
 );
 
 -- Table: referee
 CREATE TABLE referee (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     division_id int NOT NULL REFERENCES division (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -241,20 +229,17 @@ CREATE TABLE referee (
     phone_confirmed bool NOT NULL,
     date_registered varchar(10) NOT NULL,
     is_registered bool NOT NULL,
-    previous_experience varchar(200) NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    previous_experience varchar(200) NULL
 );
 
 -- Table: secondary_parent
 CREATE TABLE secondary_parent (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     player_id int NOT NULL REFERENCES player (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -265,20 +250,17 @@ CREATE TABLE secondary_parent (
     birth_date varchar(10) NOT NULL,
     email_confirmed bool NOT NULL,
     phone_confirmed bool NOT NULL,
-    date_registered varchar(10) NOT NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    date_registered varchar(10) NOT NULL
 );
 
 -- Table: timekeeper
 CREATE TABLE timekeeper (
     id serial NOT NULL PRIMARY KEY,
+    user_id int not null,
     division_id int NOT NULL REFERENCES division (id),
     first_name varchar(50) NOT NULL,
     surname varchar(50) NOT NULL,
     gender varchar(6) NOT NULL,
-    email varchar(150) NOT NULL,
     phone varchar(12) NOT NULL,
     address varchar(200) NOT NULL,
     city varchar(50) NOT NULL,
@@ -291,10 +273,7 @@ CREATE TABLE timekeeper (
     phone_confirmed bool NOT NULL,
     date_registered varchar(10) NOT NULL,
     is_registered bool NOT NULL,
-    previous_experience varchar(200) NULL,
-    password varchar(64) NOT NULL,
-    salt varchar(64) NOT NULL,
-    level int NOT NULL
+    previous_experience varchar(200) NULL
 );
 
 -- End of file.

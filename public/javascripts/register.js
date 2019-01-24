@@ -1,19 +1,3 @@
-function getCookie(cname) {
-  var name = cname + "=";
-  var decodedCookie = decodeURIComponent(document.cookie);
-  var ca = decodedCookie.split(';');
-  for(var i = 0; i <ca.length; i++) {
-    var c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
 $(document).ready(() => {
 
     var serverText = document.getElementById('serverURLButton');
@@ -21,6 +5,8 @@ $(document).ready(() => {
 
     var loginBtn = document.getElementById('loginBtn');
     var registerBtn = document.getElementById('registerBtn');
+    var submit = document.getElementById('submit');
+    var typeSelect = document.getElementById('typeSelect');
     
     if (document.cookie.includes('token')) {
         console.log(getCookie('token'));
@@ -44,4 +30,18 @@ $(document).ready(() => {
             window.location.replace(server + 'register');
         });
     }
+
+    typeSelect.addEventListener('change', () => {
+        var choice = typeSelect.options[typeSelect.selectedIndex].value.toLowerCase();
+        if (choice != 'choose a type') {
+            submit.style.visibility = 'visible';
+        } else {
+            submit.style.visibility = 'hidden';
+        }
+    });
+
+    submit.addEventListener('click', () => {
+        var choice = typeSelect.options[typeSelect.selectedIndex].value.toLowerCase();
+        window.location.replace(server + 'register/' + choice);
+    });
 });
